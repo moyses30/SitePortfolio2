@@ -192,6 +192,7 @@
                      {% endfor %}
                 {% endwith %}
                 <form action="" method="POST" autocomplete="on">
+                    {{enviaremail.csrf_token}}
                     {{enviaremail.username.label}}
                     {{enviaremail.username(placeholder='Nome Completo:')}}
                     {{enviaremail.email(placeholder='Email:')}}
