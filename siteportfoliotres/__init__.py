@@ -17,11 +17,12 @@ else:
 database= SQLAlchemy(app)
 
 from siteportfoliotres import models
+from sqlalchemy import inspect
 engine = sqlalchemy.create_engine(app.config['SQLALCHEMY_DATABASE_URI'] )
-insector = sqlalchemy.insert(engine)
-if not insector.has_table('emailBancoDados'):
+inspector = inspect(engine)
+if not inspector.has_table('emailBancoDados'):
     with app.app_context():
-        database.drop_all()
+
         database.create_all()
         print("base criada")
 
